@@ -21,5 +21,9 @@ public class EtudiantService {
 	public void save(Etudiant e) {
 		etudiantRepository.save(e);
 	}
+
+	public void deleteAll() {
+		etudiantRepository.deleteAll();		
+	}
 	
 }
