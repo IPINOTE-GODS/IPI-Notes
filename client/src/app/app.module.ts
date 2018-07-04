@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { LocationStrategy , PathLocationStrategy } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -19,7 +20,7 @@ import { EtudiantEditComponent } from './etudiant-edit/etudiant-edit.component';
 const appRoutes: Routes = [
     {
         path: '',
-        redirectTo: '/etudiant-list',
+        redirectTo: '/CSS Commun',
         pathMatch: 'full'
     },
     {
@@ -40,7 +41,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     EtudiantListComponent,
-    EtudiantEditComponent
+    EtudiantEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +57,8 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [EtudiantService, GiphyService],
+  providers: [EtudiantService, GiphyService,    { provide: LocationStrategy, useClass: PathLocationStrategy }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
