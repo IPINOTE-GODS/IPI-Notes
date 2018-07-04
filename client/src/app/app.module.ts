@@ -16,12 +16,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { EtudiantListComponent } from './etudiant-list/etudiant-list.component';
 import { EtudiantEditComponent } from './etudiant-edit/etudiant-edit.component';
+import { IdentificationComponent } from './identification/identification.component';
 
 const appRoutes: Routes = [
     {
         path: '',
-        redirectTo: '/CSS Commun',
+        redirectTo: '/identification',
         pathMatch: 'full'
+    },
+    {
+        path: 'identification',
+        component: IdentificationComponent
     },
     {
         path: 'etudiant-list',
@@ -42,6 +47,7 @@ const appRoutes: Routes = [
     AppComponent,
     EtudiantListComponent,
     EtudiantEditComponent,
+    IdentificationComponent,
   ],
   imports: [
     BrowserModule,
