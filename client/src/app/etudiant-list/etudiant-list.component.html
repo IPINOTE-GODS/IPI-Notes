@@ -1,20 +1,19 @@
-<h2>Etudiant List</h2>
+	<img src="https://pbs.twimg.com/profile_images/852147277481349122/bV8ZtS-5_400x400.jpg" tyle=":value;">
+<h2>Identifiez vous :</h2>
+      <form ng-submit="formSubmit()" class="form">
+        <div class="col-md-4">
+          <div class="form-group">
+            <input type="text" class="form-control" ng-model="username" placeholder="identifiant" required=""/>
+          </div> 
 
-<mat-card>
-    <mat-card-header>Etudiant List</mat-card-header>
-    
-    <mat-card-content>
-        <mat-list>
+          <div class="form-group">
+            <input type="password" class="form-control" ng-model="password" placeholder="mot de passe" required=""/>
+          </div>
 
-            <mat-list-item *ngFor="let etudiant of etudiants">
-                <img mat-list-avatar src="{{etudiant.giphyUrl}}" alt="{{etudiant.name}}">
-                <h3 mat-line>
-                    <a mat-button [routerLink]="['/etudiant-edit', etudiant.id]">{{etudiant.name}}</a>
-                </h3>
-            </mat-list-item>
+          <div class="form-group">
+            <button type="submit" class="btn btn-success">Login</button>
+            <span class="text-danger">{{ error }}</span>
+          </div>
 
-        </mat-list>
-    </mat-card-content>
-
-    <button mat-fab color="primary" [routerLink]="['/etudiant-add']">Add</button>
-</mat-card>
+        </div>
+      </form>

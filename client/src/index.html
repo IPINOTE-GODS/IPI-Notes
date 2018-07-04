@@ -2,13 +2,70 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
   <title>Acceuil</title>
   <base href="/">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
-  <app-root></app-root>
+<!-- 
+<div class="col-sm-6 col-md-10 col-xs-6">
+	<div class="col-sm-6 col-md-3 col-xs-12 image-container" style="float: left;">
+		<img id="logo-ipi" src="http://www.ipi-ecoles.com/wp-content/themes/ipi/img/common/ipi-ecole-informatique-01.png">
+	</div>
+	<div class="header-descrip" >
+		<div class="col-sm-6 col-md-9 col-xs-12">
+		<h2><span class="" style="text-transform: uppercase; font-weight: bold;">Informatique &amp; Numérique</span></h2><br>
+	    <span class="" style="text-transform: uppercase;">Connectez-vous au monde de l'entreprise</span>
+		    <div style="font-size:13px;"><p>L’IPI, école d’informatique du Groupe IGS, 
+		    accompagne chaque année plus de 500 personnes de tous âges dans leur développement professionnel 
+		    à travers des titres reconnus et accessibles par la formation initiale, l’alternance, l’apprentissage, 
+		    la VAE ou la formation continue.</p>
+			</div>
+		</div>
+	</div>
+</div>
+-->
+	
+<div style="margin-left: 600px; margin-top:100px;">
+
+<img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" style="width: 96px; height: 96px; 
+	margin-left: 110px; margin-bottom: 20px; margin-top: 20px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;"/>
+    <div >
+      <form ng-submit="formSubmit()" class="form">
+        <div class="col-md-4">
+	        <div class="input-group mb-3">
+			  <div class="input-group-prepend">
+			    <span class="input-group-text" ><i class="fa fa-user"></i></span></span>
+			  </div>
+				<input type="text" class="form-control" ng-model="username" placeholder="Identifiant" required=""/>
+			</div>
+			
+	        <div class="input-group mb-3">
+			  <div class="input-group-prepend">
+			    <span class="input-group-text"></span>
+			  </div>
+				<input type="password" class="form-control" ng-model="password" placeholder="Mot de passe" required=""/>
+			</div>
+			
+                <div id="remember" class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Se souvenir de moi
+                    </label>
+                </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-lg btn-primary btn-block">Connexion</button>
+          </div>
+        </div>
+      </form>
+     </div>
+</div>
 </body>
 </html>
