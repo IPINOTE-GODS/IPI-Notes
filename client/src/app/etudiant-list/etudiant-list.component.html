@@ -1,20 +1,21 @@
-<h2>Etudiant List</h2>
-
-<mat-card>
-    <mat-card-header>Etudiant List</mat-card-header>
-    
-    <mat-card-content>
-        <mat-list>
-
-            <mat-list-item *ngFor="let etudiant of etudiants">
-                <img mat-list-avatar src="{{etudiant.giphyUrl}}" alt="{{etudiant.name}}">
-                <h3 mat-line>
-                    <a mat-button [routerLink]="['/etudiant-edit', etudiant.id]">{{etudiant.name}}</a>
-                </h3>
-            </mat-list-item>
-
-        </mat-list>
-    </mat-card-content>
-
+<h2>Liste des étudiants de la promotion </h2>            
+	<table class="table table-hover table-responsive">
+		<thead>
+			<tr>
+				<th>Liste des étudiants de la promotion XXX</th>				
+			<tr>
+		</thead>
+		<tbody *ngFor="let etudiant of etudiants">
+			<tr>
+				<th>
+					<img src='{{etudiant.giphyUrl}}' width=50/>										
+				</th>				
+				<th>
+					<h3>
+						<a mat-button [routerLink]="['/etudiant-edit', etudiant.id]">{{etudiant.name}}</a>
+					</h3>
+				</th>				
+			</tr>
+		</tbody>
+	</table>        
     <button mat-fab color="primary" [routerLink]="['/etudiant-add']">Add</button>
-</mat-card>

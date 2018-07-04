@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EtudiantService } from '../shared/etudiant/etudiant.service';
 import { GiphyService } from '../shared/giphy/giphy.service';
 
+
 @Component({
     selector: 'app-etudiant-list',
     templateUrl: './etudiant-list.component.html',
@@ -9,6 +10,7 @@ import { GiphyService } from '../shared/giphy/giphy.service';
 })
 
 export class EtudiantListComponent implements OnInit {
+	
 
     constructor(
         private etudiantService: EtudiantService,
@@ -19,12 +21,13 @@ export class EtudiantListComponent implements OnInit {
 
     ngOnInit() {
         this.etudiantService.getAll().subscribe(data => {
-            this.etudiants = data;
+            this.etudiants = data;		
 
             for (const etudiant of this.etudiants) {
                 this.giphyService.get(etudiant.name).subscribe(url => etudiant.giphyUrl = url);
             }
         });
+		
     }
 
 }

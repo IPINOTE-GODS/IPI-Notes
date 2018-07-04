@@ -17,6 +17,7 @@ import { AppComponent } from './app.component';
 import { EtudiantListComponent } from './etudiant-list/etudiant-list.component';
 import { EtudiantEditComponent } from './etudiant-edit/etudiant-edit.component';
 
+
 const appRoutes: Routes = [
     {
         path: '',

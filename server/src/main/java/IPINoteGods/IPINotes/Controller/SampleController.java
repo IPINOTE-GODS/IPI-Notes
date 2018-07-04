@@ -21,7 +21,7 @@ public class SampleController {
 	@RequestMapping("etudiants/all")
 	public List<Etudiant> testPage() {
 		
-		//spawnFakeEtudiants();
+		spawnFakeEtudiants();
 		
 		List<Etudiant> etudiants = etudiantService.findAll();
 		
