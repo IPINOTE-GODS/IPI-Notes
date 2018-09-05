@@ -1,11 +1,12 @@
 package IPINoteGods.IPINotes.Model;
 
-import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import org.springframework.lang.Nullable;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,10 +15,9 @@ import lombok.Setter;
 @Getter @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "etudiant")
-public class Etudiant extends Personne{
+@Table(name = "enseignants")
+public class Enseignant extends Personne{
 	
-	@OneToMany(mappedBy = "sessionId.etudiant")
-	private Set<Session> sessions = new HashSet<Session>();	
-
+	@ManyToMany(mappedBy = "enseignants")
+	Set<Module> modules;
 }

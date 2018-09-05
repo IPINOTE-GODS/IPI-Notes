@@ -3,8 +3,8 @@ package IPINoteGods.IPINotes.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import IPINoteGods.IPINotes.Model.Etudiant;
+import IPINoteGods.IPINotes.Model.Formation;
 
 @Repository
-public interface EtudiantRepository extends JpaRepository<Etudiant, Long> {
+public interface FormationRepository extends JpaRepository<Formation, Long> {
 }
