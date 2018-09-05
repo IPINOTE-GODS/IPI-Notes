@@ -16,6 +16,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { EtudiantListComponent } from './etudiant-list/etudiant-list.component';
 import { EtudiantEditComponent } from './etudiant-edit/etudiant-edit.component';
+import { PromoListComponent } from './promo-list/promo-list.component';
+import { PromoEditComponent } from './promo-edit/promo-edit.component';
+
 
 
 const appRoutes: Routes = [
@@ -35,6 +38,14 @@ const appRoutes: Routes = [
     {
         path: 'etudiant-edit/:id',
         component: EtudiantEditComponent
+    },
+    {
+        path: 'promo-list',
+        component: PromoListComponent
+    },
+    {
+        path: 'promo-add',
+        component: PromoEditComponent
     }
 ];
 
@@ -43,6 +54,8 @@ const appRoutes: Routes = [
     AppComponent,
     EtudiantListComponent,
     EtudiantEditComponent,
+    PromoListComponent,
+    PromoEditComponent
   ],
   imports: [
     BrowserModule,

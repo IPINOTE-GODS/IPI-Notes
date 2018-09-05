@@ -1,7 +1,13 @@
-		<nav class="navbar fixed-top">
-  			<a class="navbar-brand">IPI NOTES</a>
-		</nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <div class="navbar-header">
+       <img src=".\assets\images\logoipi.png" alt="Smiley face" height="42" width="42">
+       <a class="navbar-brand" href="#">IPI NOTES</a>
+       <a class="navlink"[routerLink]="['/promo-list']">Promotions</a>
+       <a class="navlink"[routerLink]="['/etudiant-list']">Liste des étudiants</a>
 
-			<img src="./assets/images/logoipi.png" style="position: absolute;bottom: 0px; right: 0px;">
+    </div>
+  </div>
+</nav>
 
-		<router-outlet></router-outlet>
+<router-outlet></router-outlet>

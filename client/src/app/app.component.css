@@ -1,11 +1,12 @@
-.navbar.fixed-top {
-	height: 64px;
-	background-color: #E33431;
-}
 a.navbar-brand{
-	color:white !important;
+	color:#E33431 !important;
 	font-size: 20pt;
 	font-weight: bold;
+}
+.navlink{
+  color:black;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 button.btn.btn-outline-light:hover{
 	color:#E33431;
