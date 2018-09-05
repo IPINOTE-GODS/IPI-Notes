@@ -43,5 +43,5 @@ testem.log
 .DS_Store
 Thumbs.db
 
-###
-angular_material_schematics-0mIIAe/*
+### custom stuff?
+package.json
