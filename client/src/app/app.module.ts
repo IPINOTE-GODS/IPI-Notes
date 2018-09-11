@@ -46,6 +46,10 @@ const appRoutes: Routes = [
     {
         path: 'promo-add',
         component: PromoEditComponent
+    },
+    {
+        path: 'promo-edit/:id',
+        component: PromoEditComponent
     }
 ];
 
