@@ -17,7 +17,7 @@
       <div class="col-sm-10"><!--left col-->
         <div class="panel panel-default">
           <div class="panel-heading">Mes Promotions<i class="fa fa-link fa-1x"></i></div>
-          <div class="panel-body"><a href="">U'DEV 2017/2018</a></div>
+          <div class="panel-body"> <a class="navlink"[routerLink]="['/modules-list']">U'DEV 2017/2018</a></div>
           <div class="panel-body"><a href="">U'DEV 2018/2019</a></div>
           <div class="panel-body"><a href="">Technicien Supérieur en technologies numériques</a></div>
           <div class="panel-body"><a href="">Concepteur Développeur Application Web Mobiles</a></div>
@@ -29,11 +29,11 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <!--<div class="row">
       <div class="col-sm-10">
       <button type="button" class="btn btn-circle btn-lg" [routerLink]="['/promo-add']">Add</button>
       </div>
-    </div>
+    </div>-->
   </div>
 </body>
 
@@ -41,22 +41,6 @@
 
 
 
-  <!--<h2> LISTE DES PROMOTIONS </h2>
-  <button type="button" class="btn btn-circle btn-lg" [routerLink]="['/promo-add']">Add</button>
-  <br/>
-  <table class="table table-hover table-bordered">
-    <tbody *ngFor="let promotion of promotions">
-    <tr>
-      <th>
-        <img src='{{promotion.giphyUrl}}' width=50/>
-      </th>
-      <th>
-        <h3>
-          <a [routerLink]="['/promotion-edit', promotion.id]">{{promotion.name}}</a>
-        </h3>
-      </th>
-    </tr>
-    </tbody>
-  </table>-->
+
 
 

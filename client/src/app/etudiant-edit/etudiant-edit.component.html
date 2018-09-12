@@ -6,9 +6,20 @@
         <mat-card-content>
             <input type="hidden" name="href" [(ngModel)]="etudiant.href">
             <mat-form-field>
-                <input matInput placeholder="Etudiant Name" [(ngModel)]="etudiant.name"
-                required name="name" #name>
+                <input matInput placeholder="Etudiant Name" [(ngModel)]="etudiant.name" required name="name" #name>
             </mat-form-field>
+        </mat-card-content>
+        <mat-card-content>
+          <input type="hidden" name="href" [(ngModel)]="etudiant.href">
+          <mat-form-field>
+            <input matInput placeholder="Note" [(ngModel)]="etudiant.name" required name="name" #name>
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-content>
+          <input type="hidden" name="href" [(ngModel)]="etudiant.href">
+          <mat-form-field>
+            <input matInput placeholder="Commentaires" [(ngModel)]="etudiant.name" required name="name" #name>
+          </mat-form-field>
         </mat-card-content>
         <mat-card-actions>
             <button mat-raised-button color="primary" type="submit"
