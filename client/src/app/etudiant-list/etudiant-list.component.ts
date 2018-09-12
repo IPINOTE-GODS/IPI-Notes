@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { EtudiantService } from '../shared/etudiant/etudiant.service';
 import { GiphyService } from '../shared/giphy/giphy.service';
-import { NgxPaginationModule} from 'ngx-pagination';
+//import { NgxPaginationModule} from 'ngx-pagination';
 
 
 

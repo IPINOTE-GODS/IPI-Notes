@@ -18,14 +18,20 @@ import { EtudiantListComponent } from './etudiant-list/etudiant-list.component';
 import { EtudiantEditComponent } from './etudiant-edit/etudiant-edit.component';
 import { PromoListComponent } from './promo-list/promo-list.component';
 import { PromoEditComponent } from './promo-edit/promo-edit.component';
+import { LoginComponent } from './login/login.component';
+import { UserComponent } from './user/user.component';
 
 
 
 const appRoutes: Routes = [
     {
         path: '',
-        redirectTo: '/CSS Commun',
+        redirectTo: 'index',
         pathMatch: 'full'
+    },
+	{
+        path: 'index',
+        component: LoginComponent
     },
     {
         path: 'etudiant-list',
@@ -55,7 +61,9 @@ const appRoutes: Routes = [
     EtudiantListComponent,
     EtudiantEditComponent,
     PromoListComponent,
-    PromoEditComponent
+    PromoEditComponent,
+    LoginComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
