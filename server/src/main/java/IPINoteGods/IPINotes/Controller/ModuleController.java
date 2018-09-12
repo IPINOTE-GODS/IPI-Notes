@@ -52,6 +52,11 @@ public class ModuleController {
 		moduleService.deleteAll();
 	}
 	
+	@RequestMapping("/delete/{id}")
+	public void delete(@PathVariable long id) {
+		moduleService.delete(id);
+	}
+	
 	/**
 	 * Renvoie un module par son ID.
 	 *

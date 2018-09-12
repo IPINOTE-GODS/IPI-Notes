@@ -1,3 +1,33 @@
-<p>
-  modules-edit works!
-</p>
+<mat-card>
+    <form #moduleForm="ngForm" (ngSubmit)="save(moduleForm.value)">
+        <mat-card-header>
+            <mat-card-title><h2>{{module.id ? 'Modifier le' : 'Rajouter un'}} Module</h2></mat-card-title>
+        </mat-card-header>
+
+        <input type="hidden" *ngIf="module.id" [(ngModel)]="module.id" name="id" #name>
+
+        <mat-card-content>
+            <input type="hidden" name="href" [(ngModel)]="module.href">
+            <mat-form-field>
+                <input matInput placeholder="Nom du Module" [(ngModel)]="module.nom" required name="nom" #name>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-content>
+          <input type="hidden" name="href" [(ngModel)]="module.href">
+          <mat-form-field>
+            <input matInput placeholder="Matière" [(ngModel)]="module.matiere" required name="matiere" #name>
+          </mat-form-field>
+        </mat-card-content>
+
+
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit"
+            [disabled]="!moduleForm.form.valid">Enregistrer</button>
+
+            <button mat-raised-button color="secondary" (click)="remove(module.href)"
+            *ngIf="module.id" type="button">Supprimer</button>
+
+            <a mat-button routerLink="/modules-list">Annuler</a>
+        </mat-card-actions>
+    </form>
+</mat-card>

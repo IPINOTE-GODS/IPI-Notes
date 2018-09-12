@@ -1,3 +1,7 @@
 button {
     margin-bottom: 20px;
 }
+
+a.btn {
+    margin-right: 10px;
+}

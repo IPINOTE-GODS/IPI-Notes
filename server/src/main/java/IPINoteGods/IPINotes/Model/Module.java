@@ -31,9 +31,10 @@ public class Module {
 	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;	
+	private Long id;
 	
 	private String nom;
+	private String matiere;
 	
 	@ManyToMany()
 	@JoinTable(name = "module_enseignant", joinColumns = @JoinColumn(name = "id_module"),
@@ -41,6 +42,30 @@ public class Module {
 	Set<Enseignant> enseignants = new HashSet<Enseignant>();
 	
 	@OneToMany(mappedBy = "sessionId.module")
-	private Set<Session> sessions = new HashSet<Session>();	
+	private Set<Session> sessions = new HashSet<Session>();
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getMatiere() {
+		return matiere;
+	}
+
+	public void setMatiere(String matiere) {
+		this.matiere = matiere;
+	}	
 		
 }

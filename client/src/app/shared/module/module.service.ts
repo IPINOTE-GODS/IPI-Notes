@@ -26,12 +26,12 @@ export class ModuleService {
         if (module['href']) {
             result = this.http.put(module.href, module);
         } else {
-            result = this.http.post(this.MODULE_API, module);
+            result = this.http.post(this.MODULE_API + "/save", module);
         }
         return result;
     }
 
     remove(href: string) {
-        return this.http.delete(href);
+        return this.http.delete(this.MODULE_API + "/delete/" + href);
     }
 }
