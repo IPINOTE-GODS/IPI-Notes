@@ -18,6 +18,8 @@ import { EtudiantListComponent } from './etudiant-list/etudiant-list.component';
 import { EtudiantEditComponent } from './etudiant-edit/etudiant-edit.component';
 import { PromoListComponent } from './promo-list/promo-list.component';
 import { PromoEditComponent } from './promo-edit/promo-edit.component';
+import { ModulesListComponent } from './modules-list/modules-list.component';
+import { FicheelevesComponent } from './ficheeleves/ficheeleves.component';
 
 
 
@@ -46,6 +48,18 @@ const appRoutes: Routes = [
     {
         path: 'promo-add',
         component: PromoEditComponent
+    },
+    {
+        path: 'promo-edit/:id',
+        component: PromoEditComponent
+    },
+    {
+        path: 'modules-list',
+        component: ModulesListComponent
+    },
+    {
+      path: 'ficheeleve',
+      component:  FicheelevesComponent
     }
 ];
 
@@ -55,7 +69,9 @@ const appRoutes: Routes = [
     EtudiantListComponent,
     EtudiantEditComponent,
     PromoListComponent,
-    PromoEditComponent
+    PromoEditComponent,
+    ModulesListComponent,
+    FicheelevesComponent
   ],
   imports: [
     BrowserModule,

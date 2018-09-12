@@ -92,10 +92,6 @@
       true,
       "always"
     ],
-    "triple-equals": [
-      true,
-      "allow-null-check"
-    ],
     "typedef-whitespace": [
       true,
       {
@@ -105,6 +101,10 @@
         "property-declaration": "nospace",
         "variable-declaration": "nospace"
       }
+    ],
+    "triple-equals": [
+      true,
+      "allow-null-check"
     ],
     "unified-signatures": true,
     "variable-name": false,
