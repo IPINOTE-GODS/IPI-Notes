@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgModule } from '@angular/core';
+import { ModuleService } from '../shared/module/module.service';
 
 @Component({
   selector: 'app-modules-list',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModulesListComponent implements OnInit {
 
-  constructor() { }
+   constructor(
+       private moduleService: ModuleService
+       ) { }
 
-  ngOnInit() {
-  }
+   private modules: Array<any> = [];
+
+   ngOnInit() {
+       this.moduleService.getAll().subscribe(data => {
+           this.modules = data;
+       });
+
+   }
 
 }

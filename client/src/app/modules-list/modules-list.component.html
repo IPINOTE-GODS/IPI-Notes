@@ -13,6 +13,23 @@
 
 <body>
 <div class="container ">
+
+  <div class="row">
+    <div class="col-sm-10"><!--left col-->
+      <div class="panel panel-default">
+        <div class="panel-heading">Sur le serveur ({{modules.length}} éléments)<i class="fa fa-link fa-1x"></i></div>
+
+        <div class="panel-body"
+          *ngFor="let module of modules">
+          <a class="navlink"[routerLink]="['/etudiant-list']">#{{module.id}} - Nom: {{module.nom}}, Matière: {{module.matiere}}</a>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+
+  <button type="button" class="btn btn-success btn-md" [routerLink]="['/modules-add']">Ajouter</button>
+
   <div class="row">
     <div class="col-sm-10"><!--left col-->
       <div class="panel panel-default">

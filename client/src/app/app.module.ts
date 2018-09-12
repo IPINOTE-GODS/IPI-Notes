@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 // ===== OUR SERVICES ===== //
 import { EtudiantService } from './shared/etudiant/etudiant.service';
+import { ModuleService } from './shared/module/module.service';
 import { GiphyService } from './shared/giphy/giphy.service';
 
 // ===== @ANGULAR/MATERIAL MODULES ===== //
@@ -20,6 +21,7 @@ import { PromoListComponent } from './promo-list/promo-list.component';
 import { PromoEditComponent } from './promo-edit/promo-edit.component';
 import { ModulesListComponent } from './modules-list/modules-list.component';
 import { FicheelevesComponent } from './ficheeleves/ficheeleves.component';
+import { ModulesEditComponent } from './modules-edit/modules-edit.component';
 
 
 
@@ -58,6 +60,14 @@ const appRoutes: Routes = [
         component: ModulesListComponent
     },
     {
+        path: 'modules-add',
+        component: ModulesEditComponent
+    },
+    {
+        path: 'modules-edit/:id',
+        component: ModulesEditComponent
+    },
+    {
       path: 'ficheeleve',
       component:  FicheelevesComponent
     }
@@ -71,7 +81,8 @@ const appRoutes: Routes = [
     PromoListComponent,
     PromoEditComponent,
     ModulesListComponent,
-    FicheelevesComponent
+    FicheelevesComponent,
+    ModulesEditComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +98,7 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [EtudiantService, GiphyService,    { provide: LocationStrategy, useClass: PathLocationStrategy }
+  providers: [EtudiantService, ModuleService, GiphyService,    { provide: LocationStrategy, useClass: PathLocationStrategy }
 ],
   bootstrap: [AppComponent]
 })
