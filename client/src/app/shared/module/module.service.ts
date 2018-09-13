@@ -23,11 +23,11 @@ export class ModuleService {
 
     save(module: any): Observable<any> {
         let result: Observable<Object>;
-        if (module['href']) {
+       /* if (module['href']) {
             result = this.http.put(module.href, module);
-        } else {
+        } else {*/
             result = this.http.post(this.MODULE_API + "/save", module);
-        }
+        //}
         return result;
     }
 
