@@ -22,7 +22,13 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import IPINoteGods.IPINotes.Exception.EtudiantNotFoundException;
 import IPINoteGods.IPINotes.Model.Etudiant;
+import IPINoteGods.IPINotes.Model.Formation;
+import IPINoteGods.IPINotes.Model.Module;
+import IPINoteGods.IPINotes.Model.Session;
 import IPINoteGods.IPINotes.Service.EtudiantService;
+import IPINoteGods.IPINotes.Service.FormationService;
+import IPINoteGods.IPINotes.Service.ModuleService;
+import IPINoteGods.IPINotes.Service.SessionService;
 
 
 @RestController
@@ -32,7 +38,12 @@ public class EtudiantController {
 	
 	@Autowired
 	EtudiantService etudiantService;
-
+	@Autowired
+	FormationService formationService;
+	@Autowired
+	SessionService sessionService;
+	@Autowired
+	ModuleService moduleService;
 	/**
 	 * Renvoie la liste des étudiants.
 	 *
@@ -84,6 +95,40 @@ public class EtudiantController {
 	}
 	
 	/**
+	 * Ajoute un étudiant à une formation
+	 *
+	 * @param etudiant l'étudiant à enregistrer
+	 * @return une réponse HTTP Created
+	 */
+	@PostMapping("/{etudiant_id}/{formation_id}")
+	public ResponseEntity<Object> linkEtudiant(@PathVariable Long etudiant_id,  @PathVariable Long formation_id) {
+		Optional<Etudiant> etudiant = etudiantService.getById(etudiant_id);
+		Optional<Formation> formation = formationService.getById(formation_id);
+		List<Session> sessions = sessionService.findByFormation(formation.orElse(null));
+		for(int i=0 ; i<sessions.size(); i++) {
+			Session current_session = sessions.get(i);
+			if(current_session.getEtudiant() == null) {
+				current_session.setEtudiant(etudiant.orElse(null));
+				sessionService.save(current_session);
+			} else {
+				Session new_session = new Session();
+				new_session.setFormation(current_session.getFormation());
+				new_session.setAnnee(current_session.getAnnee());
+				new_session.setModule(current_session.getModule());
+				new_session.setEtudiant(etudiant.orElse(null));
+				sessionService.save(new_session);
+			}
+		}
+					
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+						.buildAndExpand(etudiant_id).toUri();
+		
+		return ResponseEntity.created(location).build();
+	}
+	
+	
+	
+	/**
 	 * Met à jour l'étudiant.
 	 *
 	 * @param etudiant l'étudiant à modifier
@@ -111,4 +156,18 @@ public class EtudiantController {
     public void delete(@PathVariable long id) {
     	etudiantService.delete(id); 
     }
+    
+	/**
+	 * Lister les étudiants du module
+	 *
+	 * @param module et formation
+	 * @return une réponse HTTP OK
+	 */
+	@RequestMapping("/all/{module_id}/{formation_id}")
+	public List<Etudiant> listEtudiant( @PathVariable Long module_id,  @PathVariable Long formation_id) {
+		Optional<Module> module = moduleService.getById(module_id);
+		Optional<Formation> formation = formationService.getById(formation_id);
+		List<Etudiant> etudiants = etudiantService.findAllByModuleAndFormation(formation.get(),module.get());
+		return etudiants;
+	}
 }

@@ -1,5 +1,6 @@
 package IPINoteGods.IPINotes.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +21,8 @@ public class EtudiantService {
 
 	@Autowired
 	private EtudiantRepository etudiantRepository;
+	@Autowired 
+	SessionService sessionService;
 	
 	public List<Etudiant> findAll() {
 		return etudiantRepository.findAll();
@@ -39,6 +42,16 @@ public class EtudiantService {
 
 	public Optional<Etudiant> getById(long id) {
 		return etudiantRepository.findById(id);
+	}
+	
+	public List<Etudiant> findAllByModuleAndFormation(Formation formation, Module module){
+		List<Session> sessions = sessionService.findByFormationAndModule(formation, module);
+		List<Etudiant> etudiants = new ArrayList<>();
+		for(Session session : sessions) {
+			etudiants.add(session.getEtudiant());
+		}
+		System.out.println(etudiants);
+		return etudiants;
 	}
 	
 }

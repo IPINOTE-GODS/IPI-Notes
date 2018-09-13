@@ -25,4 +25,6 @@ public abstract class Personne {
 	
 	private String prenom;
 	
+	//private String password
+	
 }
