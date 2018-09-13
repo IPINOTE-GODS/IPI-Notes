@@ -58,5 +58,6 @@ public abstract class Personne {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 	
 }

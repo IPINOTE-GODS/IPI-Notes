@@ -19,8 +19,10 @@ import IPINoteGods.IPINotes.Exception.EvaluationNotFoundException;
 import IPINoteGods.IPINotes.Exception.FormationNotFoundException;
 import IPINoteGods.IPINotes.Model.Evaluation;
 import IPINoteGods.IPINotes.Model.Formation;
+import IPINoteGods.IPINotes.Model.Session;
 import IPINoteGods.IPINotes.Service.EvaluationService;
 import IPINoteGods.IPINotes.Service.FormationService;
+import IPINoteGods.IPINotes.Service.SessionService;
 
 @RestController
 @RequestMapping("/formation")
@@ -29,6 +31,8 @@ public class FormationController {
 	
 	@Autowired
 	FormationService formationService;
+	@Autowired
+	SessionService sessionService;
 
 	/**
 	 * Renvoie la liste des formations.
@@ -65,14 +69,17 @@ public class FormationController {
 	}
 	
 	/**
-	 * Crée une nouvelle formation
+	 * Crée une nouvelle formation pour l'année donnée
 	 *
 	 * @param formation la formation à enregistrer
 	 * @return une réponse HTTP Created
 	 */
-	@PostMapping("/save")
-	public ResponseEntity<Object> create(@RequestBody Formation formation) {
+	@PostMapping("/save/{annee}")
+	public ResponseEntity<Object> create(@RequestBody Formation formation, @PathVariable int annee) {
+		Session session = new Session(annee);
 		Formation savedFormation = formationService.save(formation);
+		session.setFormation(savedFormation);
+		sessionService.save(session);
 		
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 						.buildAndExpand(savedFormation.getId()).toUri();

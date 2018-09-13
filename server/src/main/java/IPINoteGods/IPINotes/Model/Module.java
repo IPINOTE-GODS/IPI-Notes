@@ -16,6 +16,9 @@ import javax.persistence.Table;
 
 import org.springframework.lang.Nullable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,7 +37,6 @@ public class Module {
 	private Long id;
 	
 	private String nom;
-	private String matiere;
 	
 	@ManyToMany()
 	@JoinTable(name = "module_enseignant", joinColumns = @JoinColumn(name = "id_module"),
@@ -51,21 +53,12 @@ public class Module {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 	public String getNom() {
 		return nom;
 	}
 
 	public void setNom(String nom) {
 		this.nom = nom;
-	}
-
-	public String getMatiere() {
-		return matiere;
-	}
-
-	public void setMatiere(String matiere) {
-		this.matiere = matiere;
 	}	
 		
 }

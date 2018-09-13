@@ -21,9 +21,11 @@ import IPINoteGods.IPINotes.Exception.ModuleNotFoundException;
 import IPINoteGods.IPINotes.Model.Evaluation;
 import IPINoteGods.IPINotes.Model.Formation;
 import IPINoteGods.IPINotes.Model.Module;
+import IPINoteGods.IPINotes.Model.Session;
 import IPINoteGods.IPINotes.Service.EvaluationService;
 import IPINoteGods.IPINotes.Service.FormationService;
 import IPINoteGods.IPINotes.Service.ModuleService;
+import IPINoteGods.IPINotes.Service.SessionService;
 
 @RestController
 @RequestMapping("/module")
@@ -32,6 +34,10 @@ public class ModuleController {
 	
 	@Autowired
 	ModuleService moduleService;
+	@Autowired
+	FormationService formationService;
+	@Autowired
+	SessionService sessionService;
 
 	/**
 	 * Renvoie la liste des modules.
@@ -87,4 +93,36 @@ public class ModuleController {
 		
 		return ResponseEntity.created(location).build();
 	}
+	
+	/**
+	 * Lier module à une formation
+	 *
+	 * @param module le module à lier
+	 * @return une réponse HTTP Created
+	 */
+	@PostMapping("/{module_id}/{formation_id}")
+	public ResponseEntity<Object> linkModuleToFormation( @PathVariable Long module_id,  @PathVariable Long formation_id) {
+		
+		Optional<Module> module = moduleService.getById(module_id);
+		Optional<Formation> formation = formationService.getById(formation_id);
+		List<Session> sessions = sessionService.findByFormation(formation.orElse(null));
+		Session current_session = sessions.get(0);
+		if(current_session.getModule() == null) {
+			current_session.setModule(module.orElse(null));
+			sessionService.save(current_session);
+		} else {
+			Session new_session = new Session();
+			new_session.setFormation(current_session.getFormation());
+			new_session.setAnnee(current_session.getAnnee());
+			new_session.setModule(module.orElse(null));
+			sessionService.save(new_session);
+		}
+					
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+						.buildAndExpand(module_id).toUri();
+		
+		return ResponseEntity.created(location).build();
+	}
+	
+
 }
