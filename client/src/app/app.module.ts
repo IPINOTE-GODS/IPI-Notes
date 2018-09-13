@@ -8,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 // ===== OUR SERVICES ===== //
 import { EtudiantService } from './shared/etudiant/etudiant.service';
 import { ModuleService } from './shared/module/module.service';
+import { AuthenticationService } from './shared/authentication.service';
 import { GiphyService } from './shared/giphy/giphy.service';
 
 // ===== @ANGULAR/MATERIAL MODULES ===== //
@@ -22,14 +23,20 @@ import { PromoEditComponent } from './promo-edit/promo-edit.component';
 import { ModulesListComponent } from './modules-list/modules-list.component';
 import { FicheelevesComponent } from './ficheeleves/ficheeleves.component';
 import { ModulesEditComponent } from './modules-edit/modules-edit.component';
+import { LoginComponent } from './login/login.component';
+import { UserComponent } from './user/user.component';
 
 
 
 const appRoutes: Routes = [
     {
         path: '',
-        redirectTo: '/CSS Commun',
+        redirectTo: 'index',
         pathMatch: 'full'
+    },
+	{
+        path: 'index',
+        component: LoginComponent
     },
     {
         path: 'etudiant-list',
@@ -82,7 +89,9 @@ const appRoutes: Routes = [
     PromoEditComponent,
     ModulesListComponent,
     FicheelevesComponent,
-    ModulesEditComponent
+    ModulesEditComponent,
+    LoginComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -98,7 +107,7 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [EtudiantService, ModuleService, GiphyService,    { provide: LocationStrategy, useClass: PathLocationStrategy }
+  providers: [EtudiantService, ModuleService, AuthenticationService, GiphyService,    { provide: LocationStrategy, useClass: PathLocationStrategy }
 ],
   bootstrap: [AppComponent]
 })
