@@ -17,9 +17,9 @@ export class UserService {
   }
   
    getUsers(): Observable<User[]> {
-    const headers = this._headers.append('Authorization:', 'Bearer ' + this.authService._token);
+    //const headers = this._headers.append('Authorization:', 'Bearer ' + this.authService._token);
 
     //Get users from REST API
-    return this._htc.get<User[]>(this._baseURL, { headers : headers });
+    return this._htc.get<User[]>(this._baseURL/*, { headers : headers }*/);
   }
 }

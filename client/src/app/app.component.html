@@ -1,13 +1,22 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <div class="navbar-header">
-       <img src=".\assets\images\logoipi.png" alt="Smiley face" height="42" width="42">
-       <a class="navbar-brand" href="#">IPI NOTES</a>
-       <a class="navlink"[routerLink]="['/promo-list']">Enseignants</a>
-       <a class="navlink"[routerLink]="['/ficheeleve']">Élèves</a>
-      <a class="navlink"[routerLink]="['/']">Administrateur</a>
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <img src=".\assets\images\logoipi.png" alt="Smiley face" height="42" width="42">
+
+            <a class="navbar-brand" href="#">IPI NOTES</a>
+            <a class="navlink"[routerLink]="['/promo-list']">Enseignants</a>
+            <a class="navlink"[routerLink]="['/ficheeleve']">Élèves</a>
+            <a class="navlink"[routerLink]="['/']">Administrateur</a>
+        </div>
+        <div class="navbar-header">
+            <span *ngIf="!_authService.isLoggedIn" class="info-panel alert-warning alert-link">Vous n'êtes pas connecté.</span>
+            
+            <span *ngIf="_authService.isLoggedIn">
+                <span class="info-panel alert-success alert-link">Bonjour {{ _authService.currentUser.username }}</span>
+                <span class="info-panel alert-info alert-link">Utilisateur : {{ _authService.currentUser.userType }}</span>
+            </span>
+        </div>
     </div>
-  </div>
 </nav>
 
 <router-outlet></router-outlet>

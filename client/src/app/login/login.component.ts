@@ -32,7 +32,17 @@ export class LoginComponent implements OnInit {
         .subscribe(result => {
             if (result != false) {
                 // login successful
-                this.route.navigate(["promo-list"]);
+
+                const userType = this._authService.currentUser.userType;
+
+                switch(userType) {
+                    case "étudiant":
+                        this.route.navigate(["ficheeleve"]);
+                        break;
+                    default:
+                        this.route.navigate(["promo-list"]);
+                }
+
             } else {
                 // login failed
                 this.errorMsg = 'Username or password is incorrect.';

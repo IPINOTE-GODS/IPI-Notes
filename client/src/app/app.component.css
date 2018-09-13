@@ -14,3 +14,9 @@ button.btn.btn-outline-light:hover{
 body{
 	margin:0;
 }
+
+.info-panel {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+}

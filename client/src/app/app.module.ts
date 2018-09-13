@@ -9,6 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { EtudiantService } from './shared/etudiant/etudiant.service';
 import { ModuleService } from './shared/module/module.service';
 import { AuthenticationService } from './shared/authentication.service';
+import { AuthGuard } from './shared/auth-guard.service';
 import { GiphyService } from './shared/giphy/giphy.service';
 
 // ===== @ANGULAR/MATERIAL MODULES ===== //
@@ -34,49 +35,55 @@ const appRoutes: Routes = [
         redirectTo: 'index',
         pathMatch: 'full'
     },
-	{
+    {
         path: 'index',
         component: LoginComponent
     },
     {
-        path: 'etudiant-list',
-        component: EtudiantListComponent
-    },
-    {
-        path: 'etudiant-add',
-        component: EtudiantEditComponent
-    },
-    {
-        path: 'etudiant-edit/:id',
-        component: EtudiantEditComponent
-    },
-    {
-        path: 'promo-list',
-        component: PromoListComponent
-    },
-    {
-        path: 'promo-add',
-        component: PromoEditComponent
-    },
-    {
-        path: 'promo-edit/:id',
-        component: PromoEditComponent
-    },
-    {
-        path: 'modules-list',
-        component: ModulesListComponent
-    },
-    {
-        path: 'modules-add',
-        component: ModulesEditComponent
-    },
-    {
-        path: 'modules-edit/:id',
-        component: ModulesEditComponent
-    },
-    {
-      path: 'ficheeleve',
-      component:  FicheelevesComponent
+        path: '',
+        //canActivate: [AuthGuard],
+        children: [
+            {
+                path: 'etudiant-list',
+                component: EtudiantListComponent
+            },
+            {
+                path: 'etudiant-add',
+                component: EtudiantEditComponent
+            },
+            {
+                path: 'etudiant-edit/:id',
+                component: EtudiantEditComponent
+            },
+            {
+                path: 'promo-list',
+                component: PromoListComponent
+            },
+            {
+                path: 'promo-add',
+                component: PromoEditComponent
+            },
+            {
+                path: 'promo-edit/:id',
+                component: PromoEditComponent
+            },
+            {
+                path: 'modules-list',
+                component: ModulesListComponent
+            },
+            {
+                path: 'modules-add',
+                component: ModulesEditComponent
+            },
+            {
+                path: 'modules-edit/:id',
+                component: ModulesEditComponent
+            },
+            {
+              path: 'ficheeleve',
+              component:  FicheelevesComponent
+            }
+        ]
     }
 ];
 
@@ -107,7 +114,7 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [EtudiantService, ModuleService, AuthenticationService, GiphyService,    { provide: LocationStrategy, useClass: PathLocationStrategy }
+  providers: [EtudiantService, ModuleService, AuthenticationService, AuthGuard, GiphyService,    { provide: LocationStrategy, useClass: PathLocationStrategy }
 ],
   bootstrap: [AppComponent]
 })

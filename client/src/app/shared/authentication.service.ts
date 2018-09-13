@@ -8,11 +8,13 @@ import { Response } from '@angular/http';
   providedIn: 'root'
 }*/)
 export class AuthenticationService {
-    _token : any;
+    
+    isLoggedIn : any;
+    currentUser: any;
  
     constructor(private _htc:HttpClient) {
-        var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        this._token = currentUser && currentUser.token;
+        this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        this.isLoggedIn = this.currentUser && this.currentUser.token;
     }
 	login(username: string, password: string): Observable<boolean> {
 
@@ -28,10 +30,15 @@ export class AuthenticationService {
 			let token = response;//response.json() && response.json().token;
 			if (token) {
 				//set the token property for validate token in the app.
-				this._token = token;
+				this.isLoggedIn = token;
 
+                this.currentUser = {
+                    username: username,
+                    token: token,
+                    userType: "étudiant"
+                };
 				//store username and jwt token in local storage to keep user logged in between page refreshes.
-				localStorage.setItem('currentUser', JSON.stringify({ username: username, token: token }));
+				localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
 
 				//returns true to indicate successful login
 				return true;
@@ -44,7 +51,8 @@ export class AuthenticationService {
 
 	logout(): void {
 		// clear token remove user from local storage to log user out.
-		this._token = null;
+		this.isLoggedIn = null;
+        this.currentUser = null;
 		localStorage.removeItem('currentUser');
     }
 }
