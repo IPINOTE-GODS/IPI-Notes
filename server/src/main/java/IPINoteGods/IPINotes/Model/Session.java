@@ -40,6 +40,7 @@ public class Session {
 	@Column(name="annee")
 	private int annee;
 	
+	public Session() {}
 	public Session (int annee) {
 		this.annee = annee;
 	}
@@ -77,4 +78,10 @@ public class Session {
     public void setEvaluation(Evaluation evaluation) {
     	getSessionId().setEvaluation(evaluation);
     }
+	public int getAnnee() {
+		return annee;
+	}
+	public void setAnnee(int annee) {
+		this.annee = annee;
+	}
 }

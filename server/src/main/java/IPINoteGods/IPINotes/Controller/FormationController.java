@@ -75,11 +75,15 @@ public class FormationController {
 	 * @return une réponse HTTP Created
 	 */
 	@PostMapping("/save/{annee}")
-	public ResponseEntity<Object> create(@RequestBody Formation formation, @PathVariable int annee) {
+	public ResponseEntity<Object> create(@RequestBody Formation formation, @PathVariable(value="annee") int annee) {
 		Session session = new Session(annee);
+		//System.out.println("=======================_-1");
 		Formation savedFormation = formationService.save(formation);
+		//System.out.println("=======================_0");
 		session.setFormation(savedFormation);
+		//System.out.println("=======================_1");
 		sessionService.save(session);
+		//System.out.println("=======================_2");
 		
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 						.buildAndExpand(savedFormation.getId()).toUri();

@@ -9,9 +9,7 @@ import { ModuleService } from '../shared/module/module.service';
 })
 export class ModulesListComponent implements OnInit {
 
-   constructor(
-       private moduleService: ModuleService
-       ) { }
+   constructor(private moduleService: ModuleService) { }
 
    private modules: Array<any> = [];
 

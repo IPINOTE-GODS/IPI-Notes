@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgModule } from '@angular/core';
+import { PromoService } from '../shared/promo/promo.service';
 
 @Component({
   selector: 'app-promo-list',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PromoListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private promoService: PromoService) { }
+
+  private promos: Array<any> = [];
 
   ngOnInit() {
-  }
+    this.promoService.getAll().subscribe(data => {
+        this.promos = data;
+    });
+
+}
 
 }

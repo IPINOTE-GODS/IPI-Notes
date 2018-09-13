@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
         this._authService.logout();   
     }
 
-    login(form: NgForm){
+    login(form: any/*NgForm*/){
         //Call Login service for validate username and password.
         this._authService.login(form.username, form.password)
         .subscribe(result => {

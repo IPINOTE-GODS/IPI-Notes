@@ -1,6 +1,7 @@
 package IPINoteGods.IPINotes.Model;
 
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -33,7 +34,11 @@ public class Evaluation {
 	private String commentaire;
 	
 	@OneToMany(mappedBy = "sessionId.evaluation")
-	private Set<Session> sessions = new HashSet<Session>();	
+	private Set<Session> sessions = new HashSet<Session>();
+
+	public Long getId() {
+		return id;
+	}	
 	
 
 }

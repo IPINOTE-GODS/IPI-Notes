@@ -8,12 +8,13 @@ import { RouterModule, Routes } from '@angular/router';
 // ===== OUR SERVICES ===== //
 import { EtudiantService } from './shared/etudiant/etudiant.service';
 import { ModuleService } from './shared/module/module.service';
+import { PromoService } from './shared/promo/promo.service';
 import { AuthenticationService } from './shared/authentication.service';
 import { AuthGuard } from './shared/auth-guard.service';
 import { GiphyService } from './shared/giphy/giphy.service';
 
 // ===== @ANGULAR/MATERIAL MODULES ===== //
-import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule, MatCheckboxModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -110,11 +111,12 @@ const appRoutes: Routes = [
     MatInputModule,
     MatListModule,
     MatToolbarModule,
+    MatCheckboxModule,
 
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [EtudiantService, ModuleService, AuthenticationService, AuthGuard, GiphyService,    { provide: LocationStrategy, useClass: PathLocationStrategy }
+  providers: [EtudiantService, ModuleService, PromoService, AuthenticationService, AuthGuard, GiphyService,    { provide: LocationStrategy, useClass: PathLocationStrategy }
 ],
   bootstrap: [AppComponent]
 })

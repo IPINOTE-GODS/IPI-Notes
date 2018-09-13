@@ -1,22 +1,46 @@
-<div class="container ">
-  <div class="row">
-    <div class="col-sm-10"><!--left col-->
-      <div class="panel panel-default">
-        <div class="panel-heading">Nom de la formation<i class="fa fa-link fa-1x"></i></div>
-        <div class="panel-body">
-          <input type="text" class="form-control" name="name" id="name" placeholder="Nom de la formation" title="enter the name of this formation ">
-        </div>
-        <div class="panel-heading">Année de la formation<i class="fa fa-link fa-1x"></i></div>
-        <div class="panel-body">
-          <input type="text" class="form-control" name="year" id="year" placeholder="2018/2019" title="enter the year of this formation">
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-10">
-      <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Enregistrer</button>
-      <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Réinitialiser</button>
-    </div>
-  </div>
-</div>
+<mat-card>
+    <form #promoForm="ngForm" (ngSubmit)="save(promoForm.value)">
+        <mat-card-header>
+            <mat-card-title><h2>{{promo.id ? 'Modifier la' : 'Rajouter une'}} Formation</h2></mat-card-title>
+        </mat-card-header>
+
+        <input type="hidden" *ngIf="promo.id" [(ngModel)]="promo.id" name="id">
+
+        <mat-card-content>
+            <input type="hidden" name="href" [(ngModel)]="promo.href">
+            <mat-form-field>
+                <input matInput placeholder="Nom de la formation" [(ngModel)]="promo.nom" required name="nom">
+            </mat-form-field>
+        </mat-card-content>
+        
+        <mat-card-content>
+            <input type="hidden" name="href" [(ngModel)]="promo.href">
+            <mat-form-field>
+                <input matInput placeholder="Année de la formation" [(ngModel)]="annee" required name="annee">
+            </mat-form-field>
+        </mat-card-content>
+
+        <mat-card-content>
+            <input type="hidden" name="href" [(ngModel)]="promo.href">
+            <mat-form-field>
+                <input type="number" matInput placeholder="Nombre d'années" [(ngModel)]="promo.nombreAnnees" required name="nombreAnnees">
+            </mat-form-field>
+        </mat-card-content>
+
+        <mat-card-content>
+            <input type="hidden" name="href" [(ngModel)]="promo.href">
+            <mat-checkbox [(ngModel)]="promo.isSemestriel" name="isSemestriel">Formation semestrielle ?</mat-checkbox>
+        </mat-card-content>
+
+
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit"
+            [disabled]="!promoForm.form.valid"><i class="glyphicon glyphicon-ok-sign"></i> Enregistrer</button>
+
+            <button mat-raised-button color="secondary" (click)="remove(promo.href)"
+            *ngIf="promo.id" type="button">Supprimer</button>
+
+            <a mat-button routerLink="/promos-list">Annuler</a>
+        </mat-card-actions>
+    </form>
+</mat-card>

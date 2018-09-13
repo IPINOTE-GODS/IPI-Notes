@@ -5,8 +5,7 @@
       <div class="panel panel-default">
         <div class="panel-heading">Sur le serveur ({{modules.length}} éléments)<i class="fa fa-link fa-1x"></i></div>
 
-        <div class="panel-body"
-          *ngFor="let module of modules">
+        <div class="panel-body" *ngFor="let module of modules">
           <a class="btn btn-info btn-xs" [routerLink]="['/modules-edit', module.id]">Modifier</a>
           <a class="navlink"[routerLink]="['/etudiant-list']">#{{module.id}} - Nom: {{module.nom}}, Matière: {{module.matiere}}</a>
         </div>

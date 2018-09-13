@@ -1,23 +1,36 @@
 <div class="container ">
-  <div class="row">
-    <div class="col-sm-10"><!--left col-->
-      <div class="panel panel-default">
-        <div class="panel-heading">Mes Formations<i class="fa fa-link fa-1x"></i></div>
-        <div class="panel-body"> <a class="navlink"[routerLink]="['/modules-list']">U'DEV 2017/2018</a></div>
-        <div class="panel-body"><a href="">U'DEV 2018/2019</a></div>
-        <div class="panel-body"><a href="">Technicien Supérieur en technologies numériques</a></div>
-        <div class="panel-body"><a href="">Concepteur Développeur Application Web Mobiles</a></div>
-        <div class="panel-body"><a href="">Adminitrateur Systèmes et Réseau</a></div>
-        <div class="panel-body"><a href="">Chef de projet Réseaux et Sécurité</a></div>
-        <div class="panel-body"><a href="">Chef de projet AMOA</a></div>
-        <div class="panel-body"><a href="">Chef de projet ingénierie logicielle</a></div>
-        <div class="panel-body"><a href="">CPMI</a></div>
-      </div>
+    <div class="row">
+        <div class="col-sm-10"><!--left col-->
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Mes Formations dynamiques ({{promos.length}} éléments)<i class="fa fa-link fa-1x"></i></div>
+
+                <div class="panel-body" *ngFor="let promo of promos">
+                    <a class="btn btn-info btn-xs" [routerLink]="['/promo-edit', promo.id]">Modifier</a>
+                    <a class="navlink"[routerLink]="['/modules-list']">U'DEV 2017/2018</a>
+                </div>
+
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-10">
-    <button type="button" class="btn btn-circle btn-lg" [routerLink]="['/promo-add']">Add</button>
+
+    <button type="button" class="btn btn-success btn-md" [routerLink]="['/promo-add']">Ajouter</button>
+
+    <div class="row">
+        <div class="col-sm-10"><!--left col-->
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Mes Formations<i class="fa fa-link fa-1x"></i></div>
+                <div class="panel-body"> <a class="navlink"[routerLink]="['/modules-list']">U'DEV 2017/2018</a></div>
+                <div class="panel-body"><a href="">U'DEV 2018/2019</a></div>
+                <div class="panel-body"><a href="">Technicien Supérieur en technologies numériques</a></div>
+                <div class="panel-body"><a href="">Concepteur Développeur Application Web Mobiles</a></div>
+                <div class="panel-body"><a href="">Adminitrateur Systèmes et Réseau</a></div>
+                <div class="panel-body"><a href="">Chef de projet Réseaux et Sécurité</a></div>
+                <div class="panel-body"><a href="">Chef de projet AMOA</a></div>
+                <div class="panel-body"><a href="">Chef de projet ingénierie logicielle</a></div>
+                <div class="panel-body"><a href="">CPMI</a></div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>

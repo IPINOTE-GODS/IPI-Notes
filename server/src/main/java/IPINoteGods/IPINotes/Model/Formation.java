@@ -1,6 +1,7 @@
 package IPINoteGods.IPINotes.Model;
 
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -32,5 +33,41 @@ public class Formation {
 	private Boolean isSemestriel;
 	
 	@OneToMany(mappedBy = "sessionId.formation")
-	private Set<Session> sessions = new HashSet<Session>();	
+	private Set<Session> sessions = new HashSet<Session>();
+
+	public Long getId() {
+		return id;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public Integer getNombreAnnees() {
+		return nombreAnnees;
+	}
+
+	public void setNombreAnnees(Integer nombreAnnees) {
+		this.nombreAnnees = nombreAnnees;
+	}
+
+	public Boolean getIsSemestriel() {
+		return isSemestriel;
+	}
+
+	public void setIsSemestriel(Boolean isSemestriel) {
+		this.isSemestriel = isSemestriel;
+	}
+
+	public Set<Session> getSessions() {
+		return sessions;
+	}
+
+	public void setSessions(Set<Session> sessions) {
+		this.sessions = sessions;
+	}	
 }
