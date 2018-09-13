@@ -69,7 +69,7 @@ public class FormationController {
 	}
 	
 	/**
-	 * Crée une nouvelle formation
+	 * Crée une nouvelle formation pour l'année donnée
 	 *
 	 * @param formation la formation à enregistrer
 	 * @return une réponse HTTP Created

@@ -164,7 +164,7 @@ public class EtudiantController {
 	 * @return une réponse HTTP OK
 	 */
 	@RequestMapping("/all/{module_id}/{formation_id}")
-	public List<Etudiant> listEtudiant( @PathVariable Long module_id,  @PathVariable Long formation_id) {
+	public List<Etudiant> listEtudiantFromModule( @PathVariable Long module_id,  @PathVariable Long formation_id) {
 		Optional<Module> module = moduleService.getById(module_id);
 		Optional<Formation> formation = formationService.getById(formation_id);
 		List<Etudiant> etudiants = etudiantService.findAllByModuleAndFormation(formation.get(),module.get());

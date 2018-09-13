@@ -101,7 +101,7 @@ public class ModuleController {
 	 * @return une réponse HTTP Created
 	 */
 	@PostMapping("/{module_id}/{formation_id}")
-	public ResponseEntity<Object> linkFormation( @PathVariable Long module_id,  @PathVariable Long formation_id) {
+	public ResponseEntity<Object> linkModuleToFormation( @PathVariable Long module_id,  @PathVariable Long formation_id) {
 		
 		Optional<Module> module = moduleService.getById(module_id);
 		Optional<Formation> formation = formationService.getById(formation_id);
