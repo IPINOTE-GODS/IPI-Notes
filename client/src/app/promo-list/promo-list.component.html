@@ -3,11 +3,11 @@
         <div class="col-sm-10"><!--left col-->
 
             <div class="panel panel-default">
-                <div class="panel-heading">Mes Formations dynamiques ({{promos.length}} éléments)<i class="fa fa-link fa-1x"></i></div>
+                <div class="panel-heading">Mes Formations ({{promos.length}} éléments)<i class="fa fa-link fa-1x"></i></div>
 
                 <div class="panel-body" *ngFor="let promo of promos">
                     <a class="btn btn-info btn-xs" [routerLink]="['/promo-edit', promo.id]">Modifier</a>
-                    <a class="navlink"[routerLink]="['/modules-list']">{{promos.nom}} - {{promos.annees}} années</a>
+                    <a class="navlink"[routerLink]="['/modules-list']">{{promo.nom}} - {{promo.nombreAnnees}} années</a>
                 </div>
 
             </div>
@@ -16,8 +16,8 @@
 
     <button type="button" class="btn btn-success btn-md" [routerLink]="['/promo-add']">Ajouter</button>
 
-    <div class="row">
-        <div class="col-sm-10"><!--left col-->
+    <!-- <div class="row">
+        <div class="col-sm-10">
 
             <div class="panel panel-default">
                 <div class="panel-heading">Mes Formations<i class="fa fa-link fa-1x"></i></div>
@@ -32,5 +32,5 @@
                 <div class="panel-body"><a href="">CPMI</a></div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
