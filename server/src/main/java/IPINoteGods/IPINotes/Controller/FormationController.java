@@ -54,6 +54,14 @@ public class FormationController {
 	}
 	
 	/**
+	 * Supprime une formation.
+	 */
+	@RequestMapping("/delete/{id}")
+	public void delete(@PathVariable long id) {
+		formationService.delete(id);
+	}
+	
+	/**
 	 * Renvoie une formation par son ID.
 	 *
 	 * @param id l'ID de la formation

@@ -14,10 +14,10 @@
         </div>
         <ul class="list-group">
           <li class="list-group-item text-muted">Activité <i class="fa fa-dashboard fa-1x"></i></li>
-          <li class="list-group-item text-right"><span class="pull-left"><strong>Modules</strong></span> 25</li>
-          <li class="list-group-item text-right"><span class="pull-left"><strong>Validés</strong></span> 13</li>
-          <li class="list-group-item text-right"><span class="pull-left"><strong>Non-validés</strong></span> 2</li>
-          <li class="list-group-item text-right"><span class="pull-left"><strong>Absences</strong></span> 1</li>
+          <li class="list-group-item text-right"><span class="pull-left"><strong>Modules</strong></span>{{etudiant.nom=='Leman' ? '25' : '20'}}</li>
+          <li class="list-group-item text-right"><span class="pull-left"><strong>Validés</strong></span>{{etudiant.nom=='Leman' ? '13' : '5'}}</li>
+          <li class="list-group-item text-right"><span class="pull-left"><strong>Non-validés</strong></span>{{etudiant.nom=='Leman' ? '2' : '3'}}</li>
+          <li class="list-group-item text-right"><span class="pull-left"><strong>Absences</strong></span>{{etudiant.nom=='Leman' ? '1' : '4'}}</li>
         </ul>
         <div class="panel panel-default">
           <div class="panel-heading">Télécharger Bulletins</div>

@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 // ===== OUR SERVICES ===== //
 import { EtudiantService } from './shared/etudiant/etudiant.service';
+import { EnseignantService } from './shared/enseignant/enseignant.service';
 import { ModuleService } from './shared/module/module.service';
 import { PromoService } from './shared/promo/promo.service';
 import { AuthenticationService } from './shared/authentication.service';
@@ -116,7 +117,7 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [EtudiantService, ModuleService, PromoService, AuthenticationService, AuthGuard, GiphyService,    { provide: LocationStrategy, useClass: PathLocationStrategy }
+  providers: [EtudiantService, EnseignantService, ModuleService, PromoService, AuthenticationService, AuthGuard, GiphyService,    { provide: LocationStrategy, useClass: PathLocationStrategy }
 ],
   bootstrap: [AppComponent]
 })
