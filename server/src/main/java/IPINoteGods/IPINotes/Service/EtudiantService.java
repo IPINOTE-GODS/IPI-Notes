@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import IPINoteGods.IPINotes.Model.Etudiant;
 import IPINoteGods.IPINotes.Model.Formation;
 import IPINoteGods.IPINotes.Model.Module;
+import IPINoteGods.IPINotes.Model.Personne;
 import IPINoteGods.IPINotes.Model.Session;
 import IPINoteGods.IPINotes.Repository.EtudiantRepository;
 
@@ -52,6 +53,11 @@ public class EtudiantService {
 		}
 		System.out.println(etudiants);
 		return etudiants;
+	}
+
+	
+	public Optional<Personne> getByUsername(String username) {
+		return etudiantRepository.findByNom(username);
 	}
 	
 }

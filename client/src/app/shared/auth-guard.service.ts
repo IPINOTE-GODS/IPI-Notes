@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
     private accessMap: Object = {
         "everyone": [],
         "enseignant": ["/etudiant-list"],
-        "étudiant": ["/ficheeleve"]
+        "etudiant": ["/ficheeleve"]
     };
 
     constructor(private authService: AuthenticationService, private router: Router) {}

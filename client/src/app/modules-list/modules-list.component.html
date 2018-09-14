@@ -3,11 +3,11 @@
   <div class="row">
     <div class="col-sm-10"><!--left col-->
       <div class="panel panel-default">
-        <div class="panel-heading">Sur le serveur ({{modules.length}} éléments)<i class="fa fa-link fa-1x"></i></div>
+        <div class="panel-heading">Mes Modules ({{modules.length}} éléments)<i class="fa fa-link fa-1x"></i></div>
 
         <div class="panel-body" *ngFor="let module of modules">
           <a class="btn btn-info btn-xs" [routerLink]="['/modules-edit', module.id]">Modifier</a>
-          <a class="navlink"[routerLink]="['/etudiant-list']">#{{module.id}} - Nom: {{module.nom}}, Matière: {{module.matiere}}</a>
+          <a class="navlink"[routerLink]="['/etudiant-list']">{{module.nom}}</a>
         </div>
       
       </div>
@@ -15,9 +15,9 @@
   </div>
 
   <button type="button" class="btn btn-success btn-md" [routerLink]="['/modules-add']">Ajouter</button>
-
+<!--
   <div class="row">
-    <div class="col-sm-10"><!--left col-->
+    <div class="col-sm-10">
       <div class="panel panel-default">
         <div class="panel-heading">Mes Modules<i class="fa fa-link fa-1x"></i></div>
         <div class="panel-body"> <a class="navlink"[routerLink]="['/etudiant-list']">Programmation Java: Client lourd (Riche): Techno </a></div>
@@ -42,3 +42,4 @@
     </div>
   </div>
 </div>
+-->

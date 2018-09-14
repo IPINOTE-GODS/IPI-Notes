@@ -7,7 +7,7 @@
 
                 <div class="panel-body" *ngFor="let promo of promos">
                     <a class="btn btn-info btn-xs" [routerLink]="['/promo-edit', promo.id]">Modifier</a>
-                    <a class="navlink"[routerLink]="['/modules-list']">U'DEV 2017/2018</a>
+                    <a class="navlink"[routerLink]="['/modules-list']">{{promos.nom}} - {{promos.annees}} années</a>
                 </div>
 
             </div>

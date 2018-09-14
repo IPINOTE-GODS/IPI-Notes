@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
                 const userType = this._authService.currentUser.userType;
 
                 switch(userType) {
-                    case "étudiant":
+                    case "etudiant":
                         this.route.navigate(["ficheeleve"]);
                         break;
                     default:

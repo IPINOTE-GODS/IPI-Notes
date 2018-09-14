@@ -27,7 +27,7 @@ public class Formation {
 	
 	@Id 
 	@GeneratedValue
-	private Long id;	
+	private Long id;
 	private String nom;
 	private Integer nombreAnnees;
 	private Boolean isSemestriel;
